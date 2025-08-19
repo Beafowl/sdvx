@@ -12,7 +12,6 @@ public:
 
   Button(int pin, char input_character, int debounce_delay = 5) : pin(pin), debounce_delay(debounce_delay), input_character(input_character) {
     pinMode(pin, INPUT_PULLUP);
-    button_pressed = button_released = false;
     last_debounce_time = 0;
     last_button_state = HIGH;
   }
@@ -27,9 +26,10 @@ public:
     if ((millis() - last_debounce_time) > debounce_delay) {
       if (reading != button_state) {
         button_state = reading;
-        if (button_state == LOW) {
-          Keyboard.write(input_character);
-        }
+        if (button_state == LOW)
+          Keyboard.press(input_character);
+        else
+          Keyboard.release(input_character);
       }
     }
 

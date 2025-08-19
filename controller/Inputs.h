@@ -6,6 +6,10 @@
 #define RIGHT_ENCODER_CLK 7
 #define RIGHT_ENCODER_DT 9
 
+#define ENCODER_ACCELERATION 3
+
+// TODO: Define input values here
+
 #define BUTTON_A 15
 #define BUTTON_B 14
 #define BUTTON_C 16

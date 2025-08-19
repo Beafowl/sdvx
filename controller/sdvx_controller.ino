@@ -5,10 +5,6 @@
 #include "RotaryEncoder.h"
 #include "Button.h"
 
-#define MOUSE_ACCELERATION 20
-
-
-
 // pin modes will be set here
 RotaryEncoder leftEncoder = RotaryEncoder(LEFT_ENCODER_CLK, LEFT_ENCODER_DT);
 RotaryEncoder rightEncoder = RotaryEncoder(RIGHT_ENCODER_CLK, RIGHT_ENCODER_DT);
@@ -18,7 +14,7 @@ Button buttonC = Button(BUTTON_C, 'j');
 Button buttonD = Button(BUTTON_D, 'k');
 
 Button buttonFXL = Button(FX_L, 'c');
-Button buttonFXR = Button(FX_L, 'm');
+Button buttonFXR = Button(FX_R, 'm');
 Button buttonSTART = Button(START, 'q');
 
 // https://arduinogetstarted.com/tutorials/arduino-rotary-encoder#content_how_to_program_for_rotary_encoder
@@ -30,7 +26,8 @@ void handleLeftKnob()
     if (value == HIGH) {
       leftEncoder.counter_left = 0;
       if (++leftEncoder.counter_right > leftEncoder.deadzone) {
-        Mouse.move(MOUSE_ACCELERATION, 0, 0);
+        // TODO: Figure out how much to accelerate
+        Keyboard.write('5');
         leftEncoder.counter_right = 0;
       }
     }
@@ -38,7 +35,8 @@ void handleLeftKnob()
     else {
       leftEncoder.counter_right = 0;
       if (++leftEncoder.counter_left > leftEncoder.deadzone) {
-        Mouse.move(-MOUSE_ACCELERATION, 0, 0);
+        // TODO: Figure out how much to accelerate
+        Keyboard.write('4');
         leftEncoder.counter_left = 0;
       }
     }
@@ -51,7 +49,8 @@ void handleRightKnob()
     if (value == HIGH) {
       rightEncoder.counter_left = 0;
       if (++rightEncoder.counter_right > rightEncoder.deadzone) {
-        Mouse.move(0, MOUSE_ACCELERATION, 0);
+        //Mouse.move(0, MOUSE_ACCELERATION, 0);
+        Keyboard.write('2');
         rightEncoder.counter_right = 0;
       }
     }
@@ -59,7 +58,8 @@ void handleRightKnob()
     else {
       rightEncoder.counter_right = 0;
       if (++rightEncoder.counter_left > rightEncoder.deadzone) {
-        Mouse.move(0, -MOUSE_ACCELERATION, 0);
+        //Mouse.move(0, -MOUSE_ACCELERATION, 0);
+        Keyboard.write('3');
         rightEncoder.counter_left = 0;
       }
     }
