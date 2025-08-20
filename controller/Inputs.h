@@ -8,7 +8,7 @@
 
 #define ENCODER_ACCELERATION 3
 
-// TODO: Define input values here
+#define START 8
 
 #define BUTTON_A 15
 #define BUTTON_B 14
@@ -18,4 +18,12 @@
 #define FX_L 5
 #define FX_R 6
 
-#define START 8
+#define START_JOYSTICK 1
+#define BUTTON_A_JOYSTICK 2
+#define BUTTON_B_JOYSTICK 3
+#define BUTTON_C_JOYSTICK 4
+#define BUTTON_D_JOYSTICK 5
+
+#define FXL_JOYSTICK 6
+#define FXR_JOYSTICK 7
+
