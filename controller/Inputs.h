@@ -25,7 +25,9 @@
 #define FXL_JOYSTICK 6
 #define FXR_JOYSTICK 7
 
-// comment this out if you want to use joystick buttons for the encoders
+// comment this out if you want to use joystick axes for the encoders
+// left encoder would control the x axis and
+// the right encoder would control the y axis
 //#define USE_AXES 1
 
 #define VOL_L_LEFT_TURN_JOYSTICK 8
